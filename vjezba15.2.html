@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Youtube search</h1>
+        <input type="input" class="search"/>
+        <input type="button" class="btn" value="submit" onclick="getVid()"/>    
+    </div>
+
+    <div class="vid">
+    </div>
+
+    <script>
+        let url = "https://www.googleapis.com/youtube/v3/search?&key=AIzaSyB6iL4yRbCxJ2BwQe2nruom65VEEckd9g8&part=snippet&q";
+        let search = document.querySelector(".search");
+
+        function getVid(){
+            fetch(url + search + "type=video")
+            .then(res => res.json())
+            .then(res => {
+                console.log(res);
+            })
+        }
+    </script>
+</body>
+</html>

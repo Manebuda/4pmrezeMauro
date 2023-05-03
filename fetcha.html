@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Države</p>
+    <ul class="divcina">
+</ul>
+    <select class="buton" >
+
+</select>
+
+    <script>
+        function ispisDrzava(){
+            fetch("https://restcountries.com/v3.1/all")
+            .then(res=>res.json())
+            .then(res=>{
+                for(var i=0;i<res.length;i++){
+                    console.log(res[i].name.official);
+                    document.getElementsByClassName('buton')[0].innerHTML +=
+                    `<option value="${res[i].name.official}">${res[i].name.official}</option>`
+
+                }
+            })
+        }
+        ispisDrzava();
+    </script>
+</body>
+</html>
